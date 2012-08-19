@@ -1457,7 +1457,7 @@ class appDevDebugProjectContainer extends Container
         $this->services['swiftmailer.transport'] = $instance = new \Swift_Transport_EsmtpTransport(new \Swift_Transport_StreamBuffer(new \Swift_StreamFilters_StringReplacementFilterFactory()), array(0 => new \Swift_Transport_Esmtp_AuthHandler(array(0 => new \Swift_Transport_Esmtp_Auth_CramMd5Authenticator(), 1 => new \Swift_Transport_Esmtp_Auth_LoginAuthenticator(), 2 => new \Swift_Transport_Esmtp_Auth_PlainAuthenticator()))), new \Swift_Events_SimpleEventDispatcher());
 
         $instance->setHost('smtp.gmail.com');
-        $instance->setPort(587);
+        $instance->setPort(465);
         $instance->setEncryption('ssl');
         $instance->setUsername('jesusrangel.255@gmail.com');
         $instance->setPassword('020523_jarl');
@@ -2382,7 +2382,7 @@ class appDevDebugProjectContainer extends Container
             'swiftmailer.data_collector.class' => 'Symfony\\Bundle\\SwiftmailerBundle\\DataCollector\\MessageDataCollector',
             'swiftmailer.transport.smtp.class' => 'Swift_Transport_EsmtpTransport',
             'swiftmailer.transport.smtp.encryption' => 'ssl',
-            'swiftmailer.transport.smtp.port' => 587,
+            'swiftmailer.transport.smtp.port' => 465,
             'swiftmailer.transport.smtp.host' => 'smtp.gmail.com',
             'swiftmailer.transport.smtp.username' => 'jesusrangel.255@gmail.com',
             'swiftmailer.transport.smtp.password' => '020523_jarl',
