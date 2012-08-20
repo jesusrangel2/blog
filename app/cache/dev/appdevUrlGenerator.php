@@ -37,6 +37,7 @@ class appdevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
        'BloggerBlogBundle_nosotros' => true,
        'BloggerBlogBundle_contacto' => true,
        'BloggerBlogBundle_blog_show' => true,
+       'BloggerBlogBundle_comment_create' => true,
     );
 
     /**
@@ -178,5 +179,10 @@ class appdevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
     private function getBloggerBlogBundle_blog_showRouteInfo()
     {
         return array(array (  0 => 'id',), array (  '_controller' => 'Blogger\\BlogBundle\\Controller\\BlogController::showAction',), array (  '_method' => 'GET',  'id' => '\\d+',), array (  0 =>   array (    0 => 'variable',    1 => '/',    2 => '\\d+',    3 => 'id',  ),));
+    }
+
+    private function getBloggerBlogBundle_comment_createRouteInfo()
+    {
+        return array(array (  0 => 'blog_id',), array (  '_controller' => 'Blogger\\BlogBundle\\Controller\\CommentController::createAction',), array (  '_method' => 'POST',  'blog_id' => '\\d+',), array (  0 =>   array (    0 => 'variable',    1 => '/',    2 => '\\d+',    3 => 'blog_id',  ),  1 =>   array (    0 => 'text',    1 => '/comment',  ),));
     }
 }

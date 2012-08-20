@@ -41,6 +41,7 @@
     <parameter key="locale">en</parameter>
     <parameter key="secret">c410be44776c767e1060e28ab694157c3a</parameter>
     <parameter key="blogger_blog.emails.contact_email">leon_r2@hotmail.com</parameter>
+    <parameter key="blogger_blog.comments.latest_comment_limit">10</parameter>
     <parameter key="router_listener.class">Symfony\Bundle\FrameworkBundle\EventListener\RouterListener</parameter>
     <parameter key="controller_resolver.class">Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver</parameter>
     <parameter key="controller_name_converter.class">Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser</parameter>
