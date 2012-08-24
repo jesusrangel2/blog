@@ -17,7 +17,7 @@ BloggerBlogBundle_contacto:
         _method:  GET|POST
         
 BloggerBlogBundle_blog_show:
-    pattern:  /{id}
+    pattern:  /{id}/{slug}
     defaults: { _controller: BloggerBlogBundle:Blog:show }
     requirements:
         _method:  GET
@@ -29,3 +29,23 @@ BloggerBlogBundle_comment_create:
     requirements:
         _method:  POST
         blog_id: \d+
+        
+BloggerBlogBundle_registro:
+    pattern:  /registro
+    defaults: { _controller: BloggerBlogBundle:Usuario:registro }
+
+BloggerBlogBundle_login:
+    pattern:  /login
+    defaults: { _controller: BloggerBlogBundle:Usuario:login }
+
+BloggerBlogBundle_check_path:
+    pattern:  /check
+
+BloggerBlogBundle_logout:
+    pattern:  /logout
+    
+
+
+BloggerBlogBundle_homepage_admin:
+    pattern:  /admin
+    defaults: { _controller: BloggerBlogBundle:Admin:index }

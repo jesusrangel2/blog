@@ -1,0 +1,15 @@
+admin_list:
+    pattern: /list
+    defaults: { _controller: BloggerBlogBundle:Admin:list }
+    
+admin_new:
+    pattern: /new
+    defaults: { _controller: BloggerBlogBundle:Admin:new }
+    
+admin_edit:
+    pattern: /edit/{id}
+    defaults: { _controller: BloggerBlogBundle:Admin:edit }
+    
+admin_show:
+    pattern: /show/{id}
+    defaults: { _controller: BloggerBlogBundle:Admin:show }

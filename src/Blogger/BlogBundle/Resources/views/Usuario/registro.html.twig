@@ -1,0 +1,10 @@
+{% extends 'BloggerBlogBundle::base.html.twig' %}
+
+{% block title %}Registro{% endblock%}
+
+{% block body %}
+	<h1>Registro</h1>
+	<form action="{{ path('BloggerBlogBundle_registro') }}" method="post" {{ form_enctype(form) }} class="blogger">
+	{{ form_rest(form) }}
+	<input type="submit" />
+{% endblock %}

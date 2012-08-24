@@ -174,7 +174,7 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         not_BloggerBlogBundle_contacto:
 
         // BloggerBlogBundle_blog_show
-        if (preg_match('#^/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+        if (preg_match('#^/(?P<id>\\d+)/(?P<slug>[^/]+?)$#s', $pathinfo, $matches)) {
             if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
                 $allow = array_merge($allow, array('GET', 'HEAD'));
                 goto not_BloggerBlogBundle_blog_show;
@@ -192,6 +192,54 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Blogger\\BlogBundle\\Controller\\CommentController::createAction',)), array('_route' => 'BloggerBlogBundle_comment_create'));
         }
         not_BloggerBlogBundle_comment_create:
+
+        // BloggerBlogBundle_registro
+        if ($pathinfo === '/registro') {
+            return array (  '_controller' => 'Blogger\\BlogBundle\\Controller\\UsuarioController::registroAction',  '_route' => 'BloggerBlogBundle_registro',);
+        }
+
+        // BloggerBlogBundle_login
+        if ($pathinfo === '/login') {
+            return array (  '_controller' => 'Blogger\\BlogBundle\\Controller\\UsuarioController::loginAction',  '_route' => 'BloggerBlogBundle_login',);
+        }
+
+        // BloggerBlogBundle_check_path
+        if ($pathinfo === '/check') {
+            return array('_route' => 'BloggerBlogBundle_check_path');
+        }
+
+        // BloggerBlogBundle_logout
+        if ($pathinfo === '/logout') {
+            return array('_route' => 'BloggerBlogBundle_logout');
+        }
+
+        // BloggerBlogBundle_homepage_admin
+        if ($pathinfo === '/admin') {
+            return array (  '_controller' => 'BloggerBlogBundle:Admin:index',  '_route' => 'BloggerBlogBundle_homepage_admin',);
+        }
+
+        if (0 === strpos($pathinfo, '/admin')) {
+            // admin_list
+            if ($pathinfo === '/admin/list') {
+                return array (  '_controller' => 'BloggerBlogBundle:Admin:list',  '_route' => 'admin_list',);
+            }
+
+            // admin_new
+            if ($pathinfo === '/admin/new') {
+                return array (  '_controller' => 'BloggerBlogBundle:Admin:new',  '_route' => 'admin_new',);
+            }
+
+            // admin_edit
+            if (0 === strpos($pathinfo, '/admin/edit') && preg_match('#^/admin/edit/(?P<id>[^/]+?)$#s', $pathinfo, $matches)) {
+                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'BloggerBlogBundle:Admin:edit',)), array('_route' => 'admin_edit'));
+            }
+
+            // admin_show
+            if (0 === strpos($pathinfo, '/admin/show') && preg_match('#^/admin/show/(?P<id>[^/]+?)$#s', $pathinfo, $matches)) {
+                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'BloggerBlogBundle:Admin:show',)), array('_route' => 'admin_show'));
+            }
+
+        }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
     }

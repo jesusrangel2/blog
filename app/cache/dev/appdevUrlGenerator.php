@@ -38,6 +38,15 @@ class appdevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
        'BloggerBlogBundle_contacto' => true,
        'BloggerBlogBundle_blog_show' => true,
        'BloggerBlogBundle_comment_create' => true,
+       'BloggerBlogBundle_registro' => true,
+       'BloggerBlogBundle_login' => true,
+       'BloggerBlogBundle_check_path' => true,
+       'BloggerBlogBundle_logout' => true,
+       'BloggerBlogBundle_homepage_admin' => true,
+       'admin_list' => true,
+       'admin_new' => true,
+       'admin_edit' => true,
+       'admin_show' => true,
     );
 
     /**
@@ -178,11 +187,56 @@ class appdevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
 
     private function getBloggerBlogBundle_blog_showRouteInfo()
     {
-        return array(array (  0 => 'id',), array (  '_controller' => 'Blogger\\BlogBundle\\Controller\\BlogController::showAction',), array (  '_method' => 'GET',  'id' => '\\d+',), array (  0 =>   array (    0 => 'variable',    1 => '/',    2 => '\\d+',    3 => 'id',  ),));
+        return array(array (  0 => 'id',  1 => 'slug',), array (  '_controller' => 'Blogger\\BlogBundle\\Controller\\BlogController::showAction',), array (  '_method' => 'GET',  'id' => '\\d+',), array (  0 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'slug',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '\\d+',    3 => 'id',  ),));
     }
 
     private function getBloggerBlogBundle_comment_createRouteInfo()
     {
         return array(array (  0 => 'blog_id',), array (  '_controller' => 'Blogger\\BlogBundle\\Controller\\CommentController::createAction',), array (  '_method' => 'POST',  'blog_id' => '\\d+',), array (  0 =>   array (    0 => 'variable',    1 => '/',    2 => '\\d+',    3 => 'blog_id',  ),  1 =>   array (    0 => 'text',    1 => '/comment',  ),));
+    }
+
+    private function getBloggerBlogBundle_registroRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Blogger\\BlogBundle\\Controller\\UsuarioController::registroAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/registro',  ),));
+    }
+
+    private function getBloggerBlogBundle_loginRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Blogger\\BlogBundle\\Controller\\UsuarioController::loginAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/login',  ),));
+    }
+
+    private function getBloggerBlogBundle_check_pathRouteInfo()
+    {
+        return array(array (), array (), array (), array (  0 =>   array (    0 => 'text',    1 => '/check',  ),));
+    }
+
+    private function getBloggerBlogBundle_logoutRouteInfo()
+    {
+        return array(array (), array (), array (), array (  0 =>   array (    0 => 'text',    1 => '/logout',  ),));
+    }
+
+    private function getBloggerBlogBundle_homepage_adminRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'BloggerBlogBundle:Admin:index',), array (), array (  0 =>   array (    0 => 'text',    1 => '/admin',  ),));
+    }
+
+    private function getadmin_listRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'BloggerBlogBundle:Admin:list',), array (), array (  0 =>   array (    0 => 'text',    1 => '/admin/list',  ),));
+    }
+
+    private function getadmin_newRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'BloggerBlogBundle:Admin:new',), array (), array (  0 =>   array (    0 => 'text',    1 => '/admin/new',  ),));
+    }
+
+    private function getadmin_editRouteInfo()
+    {
+        return array(array (  0 => 'id',), array (  '_controller' => 'BloggerBlogBundle:Admin:edit',), array (), array (  0 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  1 =>   array (    0 => 'text',    1 => '/admin/edit',  ),));
+    }
+
+    private function getadmin_showRouteInfo()
+    {
+        return array(array (  0 => 'id',), array (  '_controller' => 'BloggerBlogBundle:Admin:show',), array (), array (  0 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  1 =>   array (    0 => 'text',    1 => '/admin/show',  ),));
     }
 }

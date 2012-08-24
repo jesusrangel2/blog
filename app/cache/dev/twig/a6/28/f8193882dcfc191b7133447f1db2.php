@@ -52,16 +52,16 @@ class __TwigTemplate_a628f8193882dcfc191b7133447f1db2 extends Twig_Template
                     ";
         // line 21
         $this->displayBlock('navigation', $context, $blocks);
-        // line 30
+        // line 31
         echo "                </div>
 
                 <hgroup>
                     <h2>";
-        // line 33
+        // line 34
         $this->displayBlock('blog_title', $context, $blocks);
         echo "</h2>
                     <h3>";
-        // line 34
+        // line 35
         $this->displayBlock('blog_tagline', $context, $blocks);
         echo "</h3>
                 </hgroup>
@@ -69,29 +69,29 @@ class __TwigTemplate_a628f8193882dcfc191b7133447f1db2 extends Twig_Template
 
             <section class=\"main-col\">
                 ";
-        // line 39
-        $this->displayBlock('body', $context, $blocks);
         // line 40
+        $this->displayBlock('body', $context, $blocks);
+        // line 41
         echo "            </section>
             <aside class=\"sidebar\">
                 ";
-        // line 42
-        $this->displayBlock('sidebar', $context, $blocks);
         // line 43
+        $this->displayBlock('sidebar', $context, $blocks);
+        // line 44
         echo "            </aside>
 
             <div id=\"footer\">
                 ";
-        // line 46
+        // line 47
         $this->displayBlock('footer', $context, $blocks);
-        // line 49
+        // line 50
         echo "            </div>
         </section>
 
         ";
-        // line 52
-        $this->displayBlock('javascripts', $context, $blocks);
         // line 53
+        $this->displayBlock('javascripts', $context, $blocks);
+        // line 54
         echo "    </body>
 </html>";
     }
@@ -131,6 +131,10 @@ class __TwigTemplate_a628f8193882dcfc191b7133447f1db2 extends Twig_Template
         echo "\">About</a></li>
                                 <li><a href=\"";
         // line 26
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("BloggerBlogBundle_registro"), "html", null, true);
+        echo "\">Registrate</a></li>
+                                <li><a href=\"";
+        // line 27
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("BloggerBlogBundle_contacto"), "html", null, true);
         echo "\">Contact</a></li>
                             </ul>
@@ -138,7 +142,7 @@ class __TwigTemplate_a628f8193882dcfc191b7133447f1db2 extends Twig_Template
                     ";
     }
 
-    // line 33
+    // line 34
     public function block_blog_title($context, array $blocks = array())
     {
         echo "<a href=\"";
@@ -146,7 +150,7 @@ class __TwigTemplate_a628f8193882dcfc191b7133447f1db2 extends Twig_Template
         echo "\">symblog</a>";
     }
 
-    // line 34
+    // line 35
     public function block_blog_tagline($context, array $blocks = array())
     {
         echo "<a href=\"";
@@ -154,25 +158,25 @@ class __TwigTemplate_a628f8193882dcfc191b7133447f1db2 extends Twig_Template
         echo "\">creando un blog en Symfony2</a>";
     }
 
-    // line 39
+    // line 40
     public function block_body($context, array $blocks = array())
     {
     }
 
-    // line 42
+    // line 43
     public function block_sidebar($context, array $blocks = array())
     {
     }
 
-    // line 46
+    // line 47
     public function block_footer($context, array $blocks = array())
     {
-        // line 47
+        // line 48
         echo "                    Symfony2 blog tutorial - created by <a href=\"https://github.com/dsyph3r\">dsyph3r</a>
                 ";
     }
 
-    // line 52
+    // line 53
     public function block_javascripts($context, array $blocks = array())
     {
     }
@@ -189,6 +193,6 @@ class __TwigTemplate_a628f8193882dcfc191b7133447f1db2 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  174 => 52,  169 => 47,  166 => 46,  161 => 42,  156 => 39,  148 => 34,  140 => 33,  132 => 26,  128 => 25,  124 => 24,  120 => 22,  117 => 21,  111 => 12,  107 => 10,  104 => 9,  98 => 5,  93 => 53,  91 => 52,  86 => 49,  84 => 46,  79 => 43,  77 => 42,  73 => 40,  71 => 39,  63 => 34,  59 => 33,  54 => 30,  52 => 21,  39 => 9,  32 => 5,  44 => 9,  41 => 14,  30 => 4,  27 => 3,  85 => 24,  76 => 20,  70 => 19,  62 => 14,  58 => 13,  53 => 11,  45 => 8,  38 => 6,  35 => 5,  29 => 4,  26 => 1,);
+        return array (  178 => 53,  173 => 48,  170 => 47,  165 => 43,  160 => 40,  152 => 35,  144 => 34,  136 => 27,  132 => 26,  128 => 25,  124 => 24,  120 => 22,  117 => 21,  111 => 12,  107 => 10,  104 => 9,  98 => 5,  93 => 54,  91 => 53,  86 => 50,  84 => 47,  79 => 44,  77 => 43,  73 => 41,  71 => 40,  63 => 35,  59 => 34,  54 => 31,  52 => 21,  41 => 14,  39 => 9,  32 => 5,  90 => 24,  81 => 20,  75 => 19,  69 => 18,  62 => 14,  58 => 13,  53 => 11,  45 => 8,  38 => 6,  35 => 5,  29 => 4,  26 => 1,);
     }
 }

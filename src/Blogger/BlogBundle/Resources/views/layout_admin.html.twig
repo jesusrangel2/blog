@@ -1,0 +1,15 @@
+{% extends '::base.html.twig' %}
+
+{% block header %}
+	<h1 calss = "grid_6 alpha"><a {{ path('admin_portada') }}>Gestion de Symblog.com</a></h1>
+
+	<nav class="grid_10 omega">
+		<ul>
+			<li><a href="{{ path('admin_post') }}">Post</a></li>
+			<li><a href="{{ path('portada')}}">Sitio Publico</a></li>
+			<li>Nombre_usuario<a href="">Salir</a></li>
+		</ul>
+	</nav>
+	
+	<h1> Titulo_de_Paginas</h1>
+{% endblock %}

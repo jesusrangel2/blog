@@ -1,7 +1,10 @@
 BloggerBlogBundle:
     resource: "@BloggerBlogBundle/Resources/config/routing.yml"
     prefix:   /
-
+    
+Admin:
+    resource: "@BloggerBlogBundle/Resources/config/admin_routing.yml"
+    prefix: /admin/
 # Internal routing configuration to handle ESI
 #_internal:
 #   resource: "@FrameworkBundle/Resources/config/routing/internal.xml"

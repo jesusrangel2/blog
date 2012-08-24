@@ -77,6 +77,11 @@ class Blog
      * @ORM\Column(type="datetime")
      */
     protected $updated;
+	
+	/**
+     * @ORM\Column(type="string")
+     */
+    protected $slug;
 
     /**
      * Get id
@@ -96,6 +101,8 @@ class Blog
     public function setTitle($title)
     {
         $this->title = $title;
+        
+		$this->setSlug($this->title);
     }
 
     /**
@@ -249,4 +256,49 @@ class Blog
     {
         return $this->comments;
     }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $this->slugify($slug);
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug(){
+        return $this->slug;
+    }
+	
+	public function slugify($text){
+	    // sustituye caracteres de espaciado o dígitos con un -
+	    $text = preg_replace('#[^\\pL\d]+#u', '-', $text);
+	
+	    // recorta espacios en ambos extremos
+	    $text = trim($text, '-');
+	
+	
+	    // translitera
+	    if (function_exists('iconv')){
+	        $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+	    }
+	
+	    // cambia a minúsculas
+	    $text = strtolower($text);
+	
+	    // elimina caracteres indeseables
+	    $text = preg_replace('#[^-\w]+#', '', $text);
+	
+	    if (empty($text)){
+	        return 'n-a';
+	    }
+	
+	    return $text;
+	}
 }
